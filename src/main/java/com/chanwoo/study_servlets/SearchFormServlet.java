@@ -2,6 +2,7 @@ package com.chanwoo.study_servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -11,11 +12,15 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns = "/searchFormServlet")
 public class SearchFormServlet extends HttpServlet{
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException{
+        response.setContentType("text/html;charset=UTF-8");
         PrintWriter printWriter = response.getWriter();
 
-        String title = "Search";
-
+        DatasInfor datasInfor = new DatasInfor();
+        HashMap<String,String> searchFormData = datasInfor.getSearchFormData();
+        String title = searchFormData.get("search_key");
+        // String title = "changeTest";
         printWriter.println("<html lang='en'>");
+        
         printWriter.println("<head>");
         printWriter.println("<title>"+title+"</title>");
         printWriter.println("<link");
@@ -28,7 +33,7 @@ public class SearchFormServlet extends HttpServlet{
         printWriter.println("<body>");
         printWriter.println("<form action=''>");
         printWriter.println("<div class='container'>");
-        printWriter.println("<div>Search Form</div>");
+        printWriter.println("<div>"+title+"</div>");
         printWriter.println("<label for='' class='form-label'>Search with Name</label>");
         printWriter.println("<input type='email' class='form-input' placeholder='input text' />");
         printWriter.println("</div>");
