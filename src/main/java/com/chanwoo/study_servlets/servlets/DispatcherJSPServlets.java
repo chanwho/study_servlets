@@ -14,7 +14,7 @@ public class DispatcherJSPServlets extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
         String hiddenParam = request.getParameter("hiddenParam");
 
-        request.setAttribute("firstName", "yojulab");
+        request.setAttribute("firstName", "yojulab"); //getAttribute는 servlet들 사이에서 데이터 넘겨줌 object가능, getParameter는 브라우저 URL뒤에 ?name=..... 이거 얻을때
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/search_form.jsp");
         requestDispatcher.forward(request, response);
     }
