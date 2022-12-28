@@ -15,6 +15,11 @@
   </head>
 
   <body>
+    <div>Check LogIn</div>
+    <div>username : <%= session.getAttribute("username") %></div>
+    <div>password : <%= session.getAttribute("password") %></div>
+    <div>ID : <%= session.getId() %></div>
+
     <%! int day = 3; %>
 
     <form action="">

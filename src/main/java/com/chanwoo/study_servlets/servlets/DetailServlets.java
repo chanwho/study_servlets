@@ -1,7 +1,6 @@
 package com.chanwoo.study_servlets.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.HashMap;
 
@@ -20,6 +19,7 @@ public class DetailServlets extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // input type
         String questions_Uid = request.getParameter("QUESTIONS_UID");
+       
 
         // biz with DB and Class
         PollWithDB pollWithDB = new PollWithDB();
